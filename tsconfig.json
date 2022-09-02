@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"allowJs": false,
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext"
+	}
+}
