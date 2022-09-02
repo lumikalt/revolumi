@@ -12,8 +12,9 @@
 		"build": "tsc"
 	},
 	"dependencies": {
-		"dotenv": "latest",
 		"axios": "latest",
+		"dotenv": "latest",
+		"escape-latex": "latest",
 		"node-fetch": "latest",
 		"revolt.js": "latest",
 		"ulid": "latest"

@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import { Client } from "revolt.js";
-import Commands from "./commands";
+import { gay } from "./commands";
 
 let client = new Client();
 
@@ -18,10 +18,25 @@ client.on("message", async (message) => {
 		return message.channel?.sendMessage("real");
 	if (!message.content?.startsWith("real!")) return;
 
-	let msg = Commands[message.content?.substring(5)]message.content?.substring(5)
+	let splitted = message.content?.substring(5).split(" ");
+	let command = splitted.shift();
+	let args = splitted.join(" ");
+	let res: string | null = null;
+
+	switch (command) {
+		case "gay":
+			res = gay(args);
+			break
+		case "shrug":
+			res = "¯\\\\\\_(ツ)\\_/¯"
+			break
+	}
+
+	console.log(res);
+
+	if (res && res.length < 2000) message.channel?.sendMessage(res);
 });
 
-`"$\textsf{\color{#F66}T\color{#FC6}H\color{#CF6}E\color{#6F6} \color{#6FC}I\color{#6CF}M\color{#66F}P\color{#C6F}O\color{#F66}S\color{#FC6}T\color{#CF6}E\color{#6F6}R\color{#6FC} \color{#6CF}W\color{#66F}H\color{#C6F}E\color{#F66}N\color{#FC6} \color{#CF6}S\color{#6F6}U\color{#6FC}S\color{#6CF}P\color{#66F}I\color{#C6F}C\color{#F66}I\color{#FC6}O\color{#CF6}U\color{#6F6}S}$"`;
 
 client.useExistingSession({
 	name: "sus",
