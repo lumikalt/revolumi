@@ -1,4 +1,5 @@
 // see escape-latex
+// https://github.com/dangmai/escape-latex/blob/master/src/index.js
 
 const defaultEscapes = {
 	"{": "\\{",

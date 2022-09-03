@@ -7,6 +7,7 @@ specifiers:
   dotenv: latest
   escape-latex: latest
   node-fetch: latest
+  owoify-js: latest
   revolt.js: latest
   ts-node: latest
   tsc-watch: latest
@@ -19,6 +20,7 @@ dependencies:
   dotenv: 16.0.2
   escape-latex: 1.2.0
   node-fetch: 3.2.10
+  owoify-js: 1.0.7
   revolt.js: 6.0.17
   ulid: 2.3.0
 
@@ -362,6 +364,10 @@ packages:
       yargs-parser: 21.1.1
     dev: false
     optional: true
+
+  /owoify-js/1.0.7:
+    resolution: {integrity: sha512-bjTMxJP+8iAv7jAFmSY0JDaiCjz2Zf83MqX6O4PS2lg+qPxF/Svyud7C76zNVpp299QvGOv+cJiFKx8KWK6ngw==}
+    dev: false
 
   /path-key/3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}

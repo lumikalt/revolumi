@@ -16,6 +16,7 @@
 		"dotenv": "latest",
 		"escape-latex": "latest",
 		"node-fetch": "latest",
+		"owoify-js": "latest",
 		"revolt.js": "latest",
 		"ulid": "latest"
 	},
