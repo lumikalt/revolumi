@@ -19,18 +19,6 @@ client.on("message", async (msg) => {
 	) {
 		msg.edit({ content: cattify(msg.content) });
 	} else if (
-		msg.author_id !== client.user?._id &&
-		msg.content.toLowerCase() === "real"
-	) {
-		let time = new Date();
-
-		console.log(
-			`[${time.toUTCString()}]: real in ${msg.channel?.name}, ${
-				msg.channel?.server?.name
-			}, to ${msg.author?.username}`
-		);
-		return msg.channel?.sendMessage("real");
-	} else if (
 		msg.content &&
 		!msg.content.startsWith("real!") &&
 		msg.content.length >= 2000
