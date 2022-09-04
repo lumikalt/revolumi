@@ -2,7 +2,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import { Client } from "revolt.js";
-import { gay, owo, uvu, uwu } from "./commands";
+import { cat, gay, owo, trans } from "./commands";
+import { cattify } from "./lib/owoify";
 
 let client = new Client();
 
@@ -10,23 +11,33 @@ client.on("ready", async () =>
 	console.info(`Logged in as ${client.user?.username}!`)
 );
 
-client.on("message", async (message) => {
+client.on("message", async (msg) => {
+	if (!msg.content) return;
 	if (
-		message.content?.toLowerCase() === "real" &&
-		message.author?._id !== client.user?._id
+		msg.author_id === client.user?._id &&
+		cattify(msg.content) !== msg.content
+	) {
+		msg.edit({ content: cattify(msg.content) });
+	} else if (
+		msg.author_id !== client.user?._id &&
+		msg.content.toLowerCase() === "real"
 	) {
 		let time = new Date();
 
 		console.log(
-			`[${time.toUTCString()}]: real in ${message.channel?.name}, ${
-				message.channel?.server?.name
-			}, to ${message.author?.username}`
+			`[${time.toUTCString()}]: real in ${msg.channel?.name}, ${
+				msg.channel?.server?.name
+			}, to ${msg.author?.username}`
 		);
-		return message.channel?.sendMessage("real");
-	}
-	if (!message.content?.startsWith("real!")) return;
+		return msg.channel?.sendMessage("real");
+	} else if (
+		msg.content &&
+		!msg.content.startsWith("real!") &&
+		msg.content.length >= 2000
+	)
+		return;
 
-	let splitted = message.content?.substring(5).split(" ");
+	let splitted = msg.content.substring(5).split(" ");
 	let command = splitted.shift();
 	let args = splitted.join(" ");
 	let res: string | null = null;
@@ -35,23 +46,24 @@ client.on("message", async (message) => {
 		case "gay":
 			res = gay(args);
 			break;
+		case "trans":
+			res = trans(args);
+			break;
 		case "shrug":
 			res = "¯\\\\\\_(ツ)\\_/¯";
 			break;
 		case "owo":
 			res = owo(args);
 			break;
-		case "uwu":
-			res = uwu(args);
+		case "cat":
+			res = cat(args);
 			break;
-		case "uvu":
-			res = uvu(args);
+		case "owocat":
+			res = owo(cat(args));
 			break;
 	}
 
-	console.log(res);
-
-	if (res && res.length < 2000) message.channel?.sendMessage(res);
+	if (res && res.length <= 2000) msg.channel?.sendMessage(res);
 });
 
 client.useExistingSession({

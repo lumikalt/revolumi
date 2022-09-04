@@ -1,27 +1,49 @@
 import { randomInt } from "crypto";
-import owoify from "owoify-js";
-import lescape from "./escape";
+import { cattify, owoify } from "./lib/owoify";
+import lescape from "./lib/escape";
 
-const colors = ["F66", "FC6", "CF6", "6F6", "6FC", "6CF", "66F", "C6F"];
+export const gay = (s: string) => {
+	const colors = ["F66", "FC6", "CF6", "6F6", "6FC", "6CF", "66F", "C6F"];
+	let timer = randomInt(8);
 
-export const gay = (text: string) => {
-	let count = randomInt(8);
-
-	return text
+	return s
 		.split("\n")
 		.map(
-			(t) =>
-				`\$\\textsf{${Array.from(t)
+			(s) =>
+				`\$\\textsf{${Array.from(s)
+					.map(lescape)
 					.map((c) => {
-						count = ++count % 8;
-						c = lescape(c);
-						return `\\color{#${colors[count]}}${c}`;
+						timer = ++timer % 8;
+
+						return `\\color{#${colors[timer]}}${c}`;
 					})
 					.join("")}}\$`
 		)
 		.join("\n");
 };
 
-export const owo = (text: string) => owoify(text, "owo");
-export const uwu = (text: string) => owoify(text, "uwu");
-export const uvu = (text: string) => owoify(text, "uvu");
+export const trans = (s: string) => {
+	const colors = ["3ae", "e7b", "fff"];
+	let timer = 1;
+
+	return s
+		.split("\n")
+		.map(
+			(s) =>
+				`\$\\textsf{${Array.from(s)
+					.map(lescape)
+					.map((c) => {
+						++timer;
+						let color =
+							Math.round(Math.cos(timer * (Math.PI / 2))) + 1;
+						console.log(color);
+
+						return `\\color{#${colors[color]}}${c}`;
+					})
+					.join("")}}\$`
+		)
+		.join("\n");
+};
+
+export const owo = (s: string) => owoify(s);
+export const cat = (s: string) => cattify(s);
