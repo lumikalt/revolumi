@@ -2,7 +2,7 @@ export const cattify = (s: string) =>
 	s
 		.split(" ")
 		.map((s) =>
-			(s.startsWith("http"))
+			s.startsWith("http")
 				? s
 				: s
 						.replaceAll("hand", "paw")
@@ -11,12 +11,12 @@ export const cattify = (s: string) =>
 						.replaceAll("feet", "paw")
 						.replaceAll("Feet", "Paw")
 						.replaceAll("FEET", "PAW")
-						.replaceAll("leg", "hindleg")
-						.replaceAll("Leg", "Hindleg")
-						.replaceAll("LEG", "HINDLEG")
-						.replaceAll("arm", "foreleg")
-						.replaceAll("Arm", "Foreleg")
-						.replaceAll("ARM", "FORELEG")
+						.replace(/^leg/g, "hindleg")
+						.replace(/^Leg/g, "Hindleg")
+						.replace(/^LEG/g, "HINDLEG")
+						.replace(/^arm/g, "foreleg")
+						.replace(/^Arm/g, "Foreleg")
+						.replace(/^ARM/g, "FORELEG")
 
 						.replace(/([Ee])veryone/g, "$1verynyan")
 						.replace(/EVERYONE/g, "EVERYNYAN")
