@@ -19,8 +19,7 @@ client.on("message", async (msg) => {
 	) {
 		msg.edit({ content: cattify(msg.content) });
 	} else if (
-		msg.content &&
-		!msg.content.startsWith("real!") &&
+		!msg.content.startsWith("real!") ||
 		msg.content.length >= 2000
 	)
 		return;

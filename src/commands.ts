@@ -36,8 +36,6 @@ export const trans = (s: string) => {
 						++timer;
 						let color =
 							Math.round(Math.cos(timer * (Math.PI / 2))) + 1;
-						console.log(color);
-
 						return `\\color{#${colors[color]}}${c}`;
 					})
 					.join("")}}\$`
