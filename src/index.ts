@@ -18,10 +18,7 @@ client.on("message", async (msg) => {
 		cattify(msg.content) !== msg.content
 	) {
 		msg.edit({ content: cattify(msg.content) });
-	} else if (
-		!msg.content.startsWith("real!") ||
-		msg.content.length >= 2000
-	)
+	} else if (!msg.content.startsWith("real!") || msg.content.length >= 2000)
 		return;
 
 	let splitted = msg.content.substring(5).split(" ");
@@ -50,7 +47,10 @@ client.on("message", async (msg) => {
 			break;
 	}
 
-	if (res && res.length <= 2000) msg.channel?.sendMessage(res);
+	if (res && res.length <= 2000) {
+		if (msg.author_id === client.user?._id) msg.delete();
+		msg.channel?.sendMessage(res);
+	}
 });
 
 client.useExistingSession({
