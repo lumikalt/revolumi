@@ -4,7 +4,7 @@ export const cattify = (s: string) =>
 	s
 		.split(" ")
 		.map((s) =>
-			s.startsWith("http") && !dontAlter.includes(s)
+			s.startsWith("http") && dontAlter.includes(s)
 				? s
 				: s
 						.replaceAll("hand", "paw")
