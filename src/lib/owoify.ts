@@ -50,14 +50,9 @@ export const owoify = (s: string) =>
 
     .replace(/o/g, () => (!Math.round(Math.random() * 10) ? "owo" : "o"));
 
-export const bottom = async (n: number) => {
-  let s: string;
-
-  s = (await exec(
-    `uwurandom tr -cd [:graph:] | tr -d '\n' | fold -w ${n} | head -n 1`
-  )).stdout
-
-  console.log(s);
-
-  return s.trimEnd();
-};
+export const bottom = async (n: number) =>
+  (
+    await exec(
+      `uwurandom tr -cd [:graph:] | tr -d '\n' | fold -w ${n} | head -n 1`
+    )
+  ).stdout.trimEnd();
