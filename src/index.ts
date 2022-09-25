@@ -5,6 +5,7 @@ import { Client } from "revolt.js";
 import { cat, gay, owo, trans } from "./commands";
 import { bottom, cattify } from "./lib/owoify";
 
+const prefix = process.env.PREFIX || "real!";
 let client = new Client();
 
 client.on("ready", async () =>
@@ -18,7 +19,7 @@ client.on("message", async msg => {
     cattify(msg.content) !== msg.content
   ) {
     msg.edit({ content: cattify(msg.content) });
-  } else if (!msg.content.startsWith("real!") || msg.content.length >= 2000)
+  } else if (!msg.content.startsWith(prefix) || msg.content.length >= 2000)
     return;
 
   let splitted = msg.content.substring(5).split(" ");
