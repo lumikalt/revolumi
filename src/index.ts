@@ -5,7 +5,8 @@ import { Client } from "revolt.js";
 import { cat, gay, owo, trans } from "./commands";
 import { bottom, cattify } from "./lib/owoify";
 
-const prefix = process.env.PREFIX || "real!";
+const prefix = process.env.PREFIX || "!!!"; // amazing prefix!
+
 let client = new Client();
 
 client.on("ready", async () =>
@@ -58,7 +59,5 @@ client.on("message", async msg => {
 });
 
 client.useExistingSession({
-  name: "sus",
   token: process.env.TOKEN ?? "sus",
-  user_id: "sus"
 });
