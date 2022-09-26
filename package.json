@@ -9,7 +9,8 @@
   "scripts": {
     "watch": "tsc-watch",
     "dev": "tsc-watch --onSuccess \"node --experimental-specifier-resolution=node dist\"",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node --experimental-specifier-resolution=node dist"
   },
   "dependencies": {
     "axios": "latest",
