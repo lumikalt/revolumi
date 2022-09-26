@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "axios": "latest",
+    "chroma-js": "latest",
     "dotenv": "latest",
     "escape-latex": "latest",
     "node-fetch": "latest",

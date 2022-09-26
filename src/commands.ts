@@ -1,8 +1,8 @@
 import { randomInt } from "crypto";
-import { cattify, owoify } from "./lib/owoify";
+import { bottom, cat, owo } from "./lib/owo";
 import { lescape } from "./lib/escape";
 
-export const gay = (s: string) => {
+export const gay = async (s: string) => {
   const colors = ["F66", "FC6", "CF6", "6F6", "6FC", "6CF", "66F", "C6F"];
   let timer = randomInt(8);
 
@@ -22,7 +22,7 @@ export const gay = (s: string) => {
     .join("\n");
 };
 
-export const trans = (s: string) => {
+export const trans = async (s: string) => {
   const colors = ["3ae", "e7b", "fff"];
   let timer = 1;
 
@@ -42,5 +42,12 @@ export const trans = (s: string) => {
     .join("\n");
 };
 
-export const owo = (s: string) => owoify(s);
-export const cat = (s: string) => cattify(s);
+export const commands = new Map([
+  ["shrug", async (_: string) =>  "¯\\\\\\_(ツ)\\_/¯"],
+  ["gay", gay],
+  ["trans", trans],
+  ["bottom", async (s: string) => bottom(s)],
+  ["owo", owo],
+  ["cat", cat],
+  ["owocat", async (s: string) => owo(await cat(s))]
+]);
