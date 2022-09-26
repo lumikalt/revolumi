@@ -1,10 +1,20 @@
-import { randomInt } from "crypto";
 import { cattify, owoify } from "./lib/owoify";
 import { lescape } from "./lib/escape";
+import chroma from 'chroma-js';
+
+const gradient = (start: string, end: string, length: number) => {
+  const colors: string[] = [];
+
+  for (let i = 1; i <= length; i++) {
+    colors.push(chroma.mix(start, end, i / length).hex('rgb'));
+  }
+
+  return colors;
+}
 
 export const gay = (s: string) => {
-  const colors = ["F66", "FC6", "CF6", "6F6", "6FC", "6CF", "66F", "C6F"];
-  let timer = randomInt(8);
+  const steps = 360 / s.length;
+  let i = 0;
 
   return s
     .split("\n")
@@ -13,9 +23,8 @@ export const gay = (s: string) => {
         `\$\\textsf{${Array.from(s)
           .map(lescape)
           .map(c => {
-            timer = ++timer % 8;
-
-            return `\\color{#${colors[timer]}}${c}`;
+            const color = chroma.hsv(steps * ++i, 0.9, 1);
+            return `\\color{${color.hex('rgb')}}${c}`;
           })
           .join("")}}\$`
     )
@@ -24,19 +33,21 @@ export const gay = (s: string) => {
 
 export const trans = (s: string) => {
   const colors = ["3ae", "e7b", "fff"];
-  let timer = 1;
+  const segments = Math.ceil(s.length / 4);
+  const g = [
+    ...gradient(colors[0], colors[1], segments),
+    ...gradient(colors[1], colors[2], segments),
+    ...gradient(colors[2], colors[1], segments),
+    ...gradient(colors[1], colors[0], segments),
+  ];
 
   return s
     .split("\n")
     .map(
-      s =>
+      (s) =>
         `\$\\textsf{${Array.from(s)
           .map(lescape)
-          .map(c => {
-            ++timer;
-            let color = Math.round(Math.cos(timer * (Math.PI / 2))) + 1;
-            return `\\color{#${colors[color]}}${c}`;
-          })
+          .map((c, i) => `\\color{${g[i]}}${c}`)
           .join("")}}\$`
     )
     .join("\n");

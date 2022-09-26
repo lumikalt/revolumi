@@ -12,7 +12,9 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@types/chroma-js": "^2.1.4",
     "axios": "latest",
+    "chroma-js": "^2.4.2",
     "dotenv": "latest",
     "escape-latex": "latest",
     "node-fetch": "latest",
@@ -22,10 +24,10 @@
   },
   "devDependencies": {
     "@types/node": "latest",
-    "ts-node": "latest",
     "@types/ws": "latest",
-    "tslib": "latest",
+    "ts-node": "latest",
     "tsc-watch": "latest",
+    "tslib": "latest",
     "typescript": "latest"
   }
 }
