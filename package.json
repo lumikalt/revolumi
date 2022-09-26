@@ -22,7 +22,6 @@
     "ulid": "latest"
   },
   "devDependencies": {
-    "@types/chroma-js": "^2.1.4",
     "@types/node": "latest",
     "@types/ws": "latest",
     "ts-node": "latest",
