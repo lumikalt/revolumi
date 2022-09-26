@@ -14,7 +14,7 @@
   "dependencies": {
     "@types/chroma-js": "^2.1.4",
     "axios": "latest",
-    "chroma-js": "^2.4.2",
+    "chroma-js": "latest",
     "dotenv": "latest",
     "escape-latex": "latest",
     "node-fetch": "latest",
