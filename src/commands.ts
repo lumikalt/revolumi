@@ -1,4 +1,4 @@
-import { cattify, owoify } from "./lib/owoify";
+import { bottom, cat, owo } from "./lib/owo";
 import { lescape } from "./lib/escape";
 import chroma from 'chroma-js';
 
@@ -12,7 +12,7 @@ const gradient = (start: string, end: string, length: number) => {
   return colors;
 }
 
-export const gay = (s: string) => {
+const gay = async (s: string) => {
   const steps = 360 / s.length;
   let i = 0;
 
@@ -31,7 +31,7 @@ export const gay = (s: string) => {
     .join("\n");
 };
 
-export const trans = (s: string) => {
+const trans = async (s: string) => {
   const colors = ["3ae", "e7b", "fff"];
   const segments = Math.ceil(s.length / 4);
   const g = [
@@ -53,5 +53,12 @@ export const trans = (s: string) => {
     .join("\n");
 };
 
-export const owo = (s: string) => owoify(s);
-export const cat = (s: string) => cattify(s);
+export const commands = new Map([
+  ["shrug", async (_: string) =>  "¯\\\\\\_(ツ)\\_/¯"],
+  ["gay", gay],
+  ["trans", trans],
+  ["bottom", async (s: string) => bottom(s)],
+  ["owo", owo],
+  ["cat", cat],
+  ["owocat", async (s: string) => owo(await cat(s))]
+]);

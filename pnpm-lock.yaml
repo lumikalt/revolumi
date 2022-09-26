@@ -29,9 +29,9 @@ dependencies:
   ulid: 2.3.0
 
 devDependencies:
-  '@types/node': 18.7.21
+  '@types/node': 18.7.22
   '@types/ws': 8.5.3
-  ts-node: 10.9.1_ke6ijd35va4xbeayrnhu4zwagm
+  ts-node: 10.9.1_6zqjvw2hgekulz3zqkevhtb2gy
   tsc-watch: 5.0.3_typescript@4.8.3
   tslib: 2.4.0
   typescript: 4.8.3
@@ -49,12 +49,12 @@ packages:
     resolution: {integrity: sha512-0lsMVexkZ7dHpQlPrTZDRsm42hZ4/CzKxP1hbAEJH8IaEwrIEhhTKJuFxPuLOi2TwPImuocncjYHpGpwVNOemQ==}
     dev: false
 
-  /@insertish/isomorphic-ws/4.0.1_ws@8.8.1:
+  /@insertish/isomorphic-ws/4.0.1_ws@8.9.0:
     resolution: {integrity: sha512-kFD/p8T4Hkqr992QrdkbW/cQ/W/q2d9MPCobwzBv2PwTKLkCD9RaYDy6m17qRnSLQQ5PU0kHCG8kaOwAqzj1vQ==}
     peerDependencies:
       ws: '*'
     dependencies:
-      ws: 8.8.1
+      ws: 8.9.0
     dev: false
 
   /@insertish/oapi/0.1.18:
@@ -105,14 +105,14 @@ packages:
     resolution: {integrity: sha512-l9hWzP7cp7yleJUI7P2acmpllTJNYf5uU6wh50JzSIZt3fFHe+w2FM6w9oZGBTYzjjm2qHdnQvI+fF/JF/E5jQ==}
     dev: false
 
-  /@types/node/18.7.21:
-    resolution: {integrity: sha512-rLFzK5bhM0YPyCoTC8bolBjMk7bwnZ8qeZUBslBfjZQou2ssJdWslx9CZ8DGM+Dx7QXQiiTVZ/6QO6kwtHkZCA==}
+  /@types/node/18.7.22:
+    resolution: {integrity: sha512-TsmoXYd4zrkkKjJB0URF/mTIKPl+kVcbqClB2F/ykU7vil1BfWZVndOnpEIozPv4fURD28gyPFeIkW2G+KXOvw==}
     dev: true
 
   /@types/ws/8.5.3:
     resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
     dependencies:
-      '@types/node': 18.7.21
+      '@types/node': 18.7.22
     dev: true
 
   /acorn-walk/8.2.0:
@@ -147,7 +147,7 @@ packages:
   /axios/0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.2
     transitivePeerDependencies:
       - debug
     dev: false
@@ -155,7 +155,7 @@ packages:
   /axios/0.26.1:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.2
     transitivePeerDependencies:
       - debug
     dev: false
@@ -163,7 +163,7 @@ packages:
   /axios/0.27.2:
     resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.15.1
+      follow-redirects: 1.15.2
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
@@ -245,8 +245,8 @@ packages:
       web-streams-polyfill: 3.2.1
     dev: false
 
-  /follow-redirects/1.15.1:
-    resolution: {integrity: sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==}
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -340,8 +340,8 @@ packages:
     dev: false
     optional: true
 
-  /mobx/6.6.1:
-    resolution: {integrity: sha512-7su3UZv5JF+ohLr2opabjbUAERfXstMY+wiBtey8yNAPoB8H187RaQXuhFjNkH8aE4iHbDWnhDFZw0+5ic4nGQ==}
+  /mobx/6.6.2:
+    resolution: {integrity: sha512-IOpS0bf3+hXIhDIy+CmlNMBfFpAbHS0aVHcNC+xH/TFYEKIIVDKNYRh9eKlXuVfJ1iRKAp0cRVmO145CyJAMVQ==}
     dev: false
 
   /node-cleanup/2.1.2:
@@ -421,17 +421,17 @@ packages:
     resolution: {integrity: sha512-NOmIzam1VYLKIYKDRgCeFbu6IcLXXtaQ5RwuqDhhCehCDFXzRyhYYXvl/l0Piz5E0ykMMDEG/G3GdIe/ZHrvlA==}
     dependencies:
       '@insertish/exponential-backoff': 3.1.0-patch.2
-      '@insertish/isomorphic-ws': 4.0.1_ws@8.8.1
+      '@insertish/isomorphic-ws': 4.0.1_ws@8.9.0
       axios: 0.21.4
       eventemitter3: 4.0.7
       lodash.defaultsdeep: 4.6.1
       lodash.flatten: 4.4.0
       lodash.isequal: 4.5.0
       long: 5.2.0
-      mobx: 6.6.1
+      mobx: 6.6.2
       revolt-api: 0.5.5-4
       ulid: 2.3.0
-      ws: 8.8.1
+      ws: 8.9.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -486,7 +486,7 @@ packages:
     dev: false
     optional: true
 
-  /ts-node/10.9.1_ke6ijd35va4xbeayrnhu4zwagm:
+  /ts-node/10.9.1_6zqjvw2hgekulz3zqkevhtb2gy:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -505,7 +505,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.7.21
+      '@types/node': 18.7.22
       acorn: 8.8.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -569,8 +569,8 @@ packages:
       isexe: 2.0.0
     dev: true
 
-  /ws/8.8.1:
-    resolution: {integrity: sha512-bGy2JzvzkPowEJV++hF07hAD6niYSr0JzBNo/J29WsB57A2r7Wlc1UFcTR9IzrPvuNVO4B8LGqF8qcpsVOhJCA==}
+  /ws/8.9.0:
+    resolution: {integrity: sha512-Ja7nszREasGaYUYCI2k4lCKIRTt+y7XuqVoHR44YpI49TtryyqbqvDMn5eqfW7e6HzTukDRIsXqzVHScqRcafg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1

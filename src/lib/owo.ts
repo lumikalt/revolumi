@@ -5,7 +5,7 @@ const exec = promisify(execCB);
 
 const dontAlter = ["not"];
 
-export const cattify = (s: string) =>
+export const cat = async (s: string) =>
   s
     .split(" ")
     .map(s =>
@@ -27,13 +27,15 @@ export const cattify = (s: string) =>
 
             .replace(/([Ee])veryone/g, "$1verynyan")
             .replace(/EVERYONE/g, "EVERYNYAN")
+            .replace(/([Aa])nyone/g, "$1nynyan")
+            .replace(/ANYONE/g, "ANYNYAN")
 
             .replaceAll("now", "nyow")
             .replaceAll("Now", "Nyow")
             .replaceAll("NOW", "NYOW")
 
-            .replace(/([Nn])o/g, "$1u")
-            .replace(/([Nn])O/g, "$1U")
+            .replace(/([Nn])o/g, "$1o")
+            .replace(/([Nn])O/g, "$1O")
             .replace(/([Nn])a/g, "$1ya")
             .replaceAll("NA", "NYA")
             .replace(/([Nn])u/g, "$1yu")
@@ -41,7 +43,7 @@ export const cattify = (s: string) =>
     )
     .join(" ");
 
-export const owoify = (s: string) =>
+export const owo = async (s: string) =>
   s
     .replace(/[rl]/g, "w")
     .replace(/[LR]/g, "W")
@@ -50,9 +52,9 @@ export const owoify = (s: string) =>
 
     .replace(/o/g, () => (!Math.round(Math.random() * 10) ? "owo" : "o"));
 
-export const bottom = async (n: number) =>
+export const bottom = async (s: string) =>
   (
     await exec(
-      `uwurandom tr -cd [:graph:] | tr -d '\n' | fold -w ${n} | head -n 1`
+      `uwurandom tr -cd [:graph:] | tr -d '\n' | fold -w ${parseInt(s)} | head -n 1`
     )
   ).stdout.trimEnd();

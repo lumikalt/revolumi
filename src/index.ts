@@ -2,8 +2,10 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import { Client } from "revolt.js";
-import { cat, gay, owo, trans } from "./commands";
-import { bottom, cattify } from "./lib/owoify";
+import { commands } from "./commands";
+import { cat } from "./lib/owo";
+
+const prefix = process.env.PREFIX || "!!!"; // amazing prefix!
 
 let client = new Client();
 
@@ -15,40 +17,16 @@ client.on("message", async msg => {
   if (!msg.content) return;
   if (
     msg.author_id === client.user?._id &&
-    cattify(msg.content) !== msg.content
+    (await cat(msg.content)) !== msg.content
   ) {
-    msg.edit({ content: cattify(msg.content) });
-  } else if (!msg.content.startsWith("real!") || msg.content.length >= 2000)
+    msg.edit({ content: await cat(msg.content) });
+  } else if (!msg.content.startsWith(prefix) || msg.content.length >= 2000)
     return;
 
   let splitted = msg.content.substring(5).split(" ");
-  let command = splitted.shift();
+  let command = commands.get(splitted.shift() ?? "") ?? ((_: string) => null);
   let args = splitted.join(" ");
-  let res: string | null = null;
-
-  switch (command) {
-    case "gay":
-      res = gay(args);
-      break;
-    case "trans":
-      res = trans(args);
-      break;
-    case "shrug":
-      res = "¯\\\\\\_(ツ)\\_/¯";
-      break;
-    case "owo":
-      res = owo(args);
-      break;
-    case "cat":
-      res = cat(args);
-      break;
-    case "owocat":
-      res = owo(cat(args));
-      break;
-    case "bottom":
-      res = await bottom(parseInt(args));
-      break;
-  }
+  let res: string | null = await command(args);
 
   if (res && res.length <= 2000) {
     if (msg.author_id === client.user?._id) msg.delete();
@@ -57,7 +35,5 @@ client.on("message", async msg => {
 });
 
 client.useExistingSession({
-  name: "sus",
-  token: process.env.TOKEN ?? "sus",
-  user_id: "sus"
+  token: process.env.TOKEN ?? "sus"
 });
