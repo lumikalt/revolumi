@@ -12,7 +12,6 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@types/chroma-js": "^2.1.4",
     "axios": "latest",
     "chroma-js": "latest",
     "dotenv": "latest",
@@ -23,6 +22,7 @@
     "ulid": "latest"
   },
   "devDependencies": {
+    "@types/chroma-js": "^2.1.4",
     "@types/node": "latest",
     "@types/ws": "latest",
     "ts-node": "latest",
