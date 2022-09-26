@@ -29,8 +29,8 @@ client.on("message", async msg => {
   let res: string | null = await command(args);
 
   if (res && res.length <= 2000) {
-    if (msg.author_id === client.user?._id) msg.delete();
-    msg.channel?.sendMessage(res);
+    if (msg.author_id === client.user?._id) msg.edit({ content: res });
+    else msg.channel?.sendMessage(res);
   }
 });
 
