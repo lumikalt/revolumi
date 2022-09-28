@@ -20,8 +20,7 @@ client.on("message", async msg => {
     (await cat(msg.content)) !== msg.content
   )
     msg.edit({ content: await cat(msg.content) });
-  else if (!msg.content.startsWith(prefix) || msg.content.length >= 2000)
-    return;
+  if (!msg.content.startsWith(prefix) || msg.content.length >= 2000) return;
 
   let splitted = msg.content.substring(5).split(" ");
   console.log(splitted);
