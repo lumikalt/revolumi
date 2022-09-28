@@ -32,7 +32,7 @@ client.on("message", async msg => {
 
   if (res && res.length <= 2000) {
     if (msg.author_id === client.user?._id) msg.edit({ content: res });
-    else msg.channel?.sendMessage(res);
+    else msg.channel?.sendMessage('\u200b' + res);
   }
 });
 
