@@ -16,6 +16,7 @@ client.on("ready", async () =>
 client.on("message", async msg => {
   if (!msg.content) return;
   if (
+    process.env.CATTIFY?.toLowerCase() !== 'false' &&
     msg.author_id === client.user?._id &&
     (await cat(msg.content)) !== msg.content
   )
